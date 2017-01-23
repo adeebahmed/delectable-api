@@ -2,6 +2,11 @@ class Api::Delectable::UsersController < ApplicationController
   respond_to :json
   skip_before_filter  :verify_authenticity_token
 
+  def index
+    u = User.all
+    render json: u, status: 200
+  end
+
   def show
     respond_with User.find(params[:id])
   end
