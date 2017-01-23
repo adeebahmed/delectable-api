@@ -17,6 +17,24 @@ class Api::Delectable::UsersController < ApplicationController
     end
   end
 
+  # Updating users
+  def update
+    user = User.find(params[:id])
+
+    if user.update(user_params)
+      render json: user, status: 200
+    else
+      render json: { errors: user.errors }, status: 422
+    end
+  end
+
+  # Deleting users
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    head 204
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :firstname, :lastname, :phone)
