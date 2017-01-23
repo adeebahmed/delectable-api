@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Fix console readline errors
+gem 'rb-readline'
 # User Authentication
 gem 'devise'
 # JSON serializer
