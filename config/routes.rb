@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :menus
   devise_for :orders
   devise_for :users
   namespace :api, defaults:{ format: :json }do
