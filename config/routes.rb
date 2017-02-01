@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :menus
   devise_for :reports
   devise_for :admins
   devise_for :orders
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
   namespace :api, defaults:{ format: :json }do
     namespace :delectable do
       resources :users, :only => [:index, :show, :create, :update, :destroy, :search]
-      resources :menu, :only => [:index, :show, :create, :update, :destroy]
+      resources :menus, :only => [:index, :show, :create, :update, :destroy]
     end
   end
 end
