@@ -26,9 +26,10 @@ class Api::Delectable::UsersController < ApplicationController
         end
 
     else
-      render json: 'Error: Invalid Argument - Try {lastname, phone, email}', status: 404
+      render json: 'Status: 404 Invalid Argument - Try {lastname, phone, email}', status: 404
     end
   end
+
   def find_users(lname, email, phone)
     if (email.nil? == false)
     users = User.search_by_email(email)
@@ -42,13 +43,15 @@ class Api::Delectable::UsersController < ApplicationController
     if(users.exists?)
       render json: users, status: 200
     else
-      render json: users.errors, status: 404
+      render json:'Status: 404 User not found', status: 404
     end
 
   end
+
   def is_number?(string)
     true if Float(string) rescue false
   end
+
 
   def create
     user=User.new(user_params)
