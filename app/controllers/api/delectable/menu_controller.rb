@@ -8,7 +8,7 @@ class MenuController < ApplicationController
   end
 
   def show
-    
+
   end
 
   # def create

@@ -1,6 +1,6 @@
 class Api::Delectable::UsersController < ApplicationController
   respond_to :json
-  skip_before_filter  :verify_authenticity_token
+ # skip_before_filter  :verify_authenticity_token
 
   def index
     users = User.all
