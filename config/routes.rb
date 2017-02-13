@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       #get "admins/:id", to:"admin#show"
 
       get "menu", to: "menu#index"
+      get "menu/:id", to: "menu#show"
     end
   end
 end
