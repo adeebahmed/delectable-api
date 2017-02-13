@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       post "admin", to: "admin#create"
       get "admin", to: "admin#index"
       post "admin/menu", to:"admin#show"
+      put "admin/menu/:id", to:"admin#updatemenu"
+      get "admin/surcharge", to: "admin#getsurcharge"
+      post "admin/surcharge", to: "admin#postsurcharge"
       #get "admins/:id", to:"admin#show"
+
+      get "menu", to: "menu#index"
     end
   end
 end

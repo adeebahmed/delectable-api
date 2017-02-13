@@ -4,7 +4,6 @@ class Api::Delectable::AdminController < ApplicationController
   def index
      admins = Admin.all
      render json: admins, status: 200
-
   end
 
   # PUT updates menu with new menu item
@@ -61,6 +60,36 @@ class Api::Delectable::AdminController < ApplicationController
     end
   end
 
+  def updatemenu
+      menuItem = Menu.find(params[:id])
+
+      if menuItem.update(update_params)
+        render json: menuItem, status: 204
+      else
+        render json: { errors: menuItem.errors }, status: 400
+      end
+  end
+
+  def getsurcharge
+      surcharge = Admin.first.surcharge
+
+      if(!surcharge.nil?)
+        render json: surcharge, status: 200
+      else
+        render json: { errors: Admin.first.errors }, status: 400
+      end
+  end
+
+  def postsurcharge
+    surcharge = Admin.first
+
+    if surcharge.update(surcharge_params)
+      render json: surcharge, status: 204
+    else
+      render json: { errors: surcharge.errors }, status: 400
+    end
+  end
+
   # # Updating admins
   # def update
   #   admin = Admin.find(params[:id])
@@ -83,15 +112,19 @@ class Api::Delectable::AdminController < ApplicationController
   def admin_params
     params.require(:admin).permit(:email, :password, :password_confirmation, :firstname, :lastname, :surcharge)
   end
-  #
-  # private
-  # def food_params
-  #   params.require(:admin).permit(:foodname, :category, :calories, :price, :minorder)
-  # end
-  #
+
   private
   def menu_params
-    params.require(:menu).permit(:email, :password, :password_confirmation, :menuitem, :price, :category, :calories)
+    params.require(:menu).permit(:id, :menuitem, :price, :category, :calories)
   end
 
+  private
+  def update_params
+    params.require(:menu).permit(:id, :price)
+  end
+
+  private
+  def surcharge_params
+    params.require(:admin).permit(:surcharge)
+  end
 end
