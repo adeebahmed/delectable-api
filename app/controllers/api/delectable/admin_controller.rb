@@ -13,7 +13,7 @@ class Api::Delectable::AdminController < ApplicationController
     if menu.save
       render json: Menu.all, status: 200
     else
-      render json: { errors: menu.errors}, status: 422
+      render json: "422", status: 422
     end
     # if(params[:id].include?("menu"))
     #   render json: "Test", status: 200
@@ -56,7 +56,7 @@ class Api::Delectable::AdminController < ApplicationController
     if admin.save
       render json: Admin.all, status: 200
     else
-      render json: { errors: admin.errors}, status: 422
+      render json: "422", status: 422
     end
   end
 
@@ -66,7 +66,7 @@ class Api::Delectable::AdminController < ApplicationController
       if menuItem.update(update_params)
         render json: menuItem, status: 204
       else
-        render json: { errors: menuItem.errors }, status: 400
+        render json: "400", status: 400
       end
   end
 
@@ -76,7 +76,7 @@ class Api::Delectable::AdminController < ApplicationController
       if(!surcharge.nil?)
         render json: surcharge, status: 200
       else
-        render json: { errors: Admin.first.errors }, status: 400
+        render json: "400", status: 400
       end
   end
 
@@ -115,7 +115,7 @@ class Api::Delectable::AdminController < ApplicationController
 
   private
   def menu_params
-    params.require(:menu).permit(:id, :menuitem, :price, :category, :calories)
+    params.require(:menu).permit(:id, :menuitem, :price, :category, :calories, :min_order, :description)
   end
 
   private
