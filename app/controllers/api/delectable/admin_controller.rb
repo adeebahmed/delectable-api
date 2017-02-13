@@ -86,7 +86,7 @@ class Api::Delectable::AdminController < ApplicationController
     if surcharge.update(surcharge_params)
       render json: surcharge, status: 204
     else
-      render json: { errors: surcharge.errors }, status: 400
+      render json: "400", status: 400
     end
   end
 

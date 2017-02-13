@@ -9,8 +9,10 @@ class Api::Delectable::OrderController < ApplicationController
   def create
     order=Order.new(order_params)
     # if the order is saved successfully than respond with json data and status code 201
+    params[:surcharge] = Admin.first.surcharge.to_s
+
     if order.save
-      render json: Order.all, status: 200
+      render json: '[{"order": {"id":' + order.id.to_s + ','  + '"cancel_url": /order/cancel/' + order.id.to_s + '}}]', status: 200
     else
       render json: "422", status: 422
     end
