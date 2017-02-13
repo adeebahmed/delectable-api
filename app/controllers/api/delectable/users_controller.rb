@@ -1,6 +1,6 @@
 class Api::Delectable::UsersController < ApplicationController
   respond_to :json
-  skip_before_filter  :verify_authenticity_token
+ # skip_before_filter  :verify_authenticity_token
 
   def index
     users = User.all
@@ -37,13 +37,12 @@ class Api::Delectable::UsersController < ApplicationController
       users = User.search_by_last_name(lname)
     elsif (phone.nil? == false)
       users = User.search_by_phone(phone)
-
     end
 
-    if(users.exists?)
+    if(users.nil? == false)
       render json: users, status: 200
     else
-      render json: users.errors, status: 404
+      render json: { errors: users.errors}, status: 404
     end
 
   end

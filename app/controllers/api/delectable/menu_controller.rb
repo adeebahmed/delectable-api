@@ -1,6 +1,5 @@
-class MenuController < ApplicationController
+class Api::Delectable::MenuController < ApplicationController
   respond_to :json
-  skip_before_filter  :verify_authenticity_token
 
   def index
     menus = Menu.all
@@ -8,7 +7,17 @@ class MenuController < ApplicationController
   end
 
   def show
-    
+    begin
+      menu = Menu.find(params[:id])
+    rescue
+      menu = nil
+    end
+
+      if !menu.nil?
+        render json: menu, status: 200
+      else
+        render json: "404", status: 404
+      end
   end
 
   # def create
