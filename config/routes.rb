@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get "menu/:id", to: "menu#show"
 
       get "order", to: "order#index"
-      get "order/:date", to: "order#show"
+      #get "order/:date", to: "order#show"
       get "order/:id", to: "order#show"
       put "order", to: "order#create"
       post "order/cancel/:id", to: "order#cancel"
