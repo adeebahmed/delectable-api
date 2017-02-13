@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   namespace :api, defaults:{ format: :json }do
     namespace :delectable do
       resources :users, :only => [:index, :show, :create, :update, :destroy]
-      resources :menus, :only => [:index, :show, :create, :update, :destroy]
-      #resources :admins, :collections => [:menu => :put, :menu => :post] #:only => [:index, :show, :create, :update, :destroy]
 
       post "admin", to: "admin#create"
       get "admin", to: "admin#index"
@@ -20,6 +18,13 @@ Rails.application.routes.draw do
 
       get "menu", to: "menu#index"
       get "menu/:id", to: "menu#show"
+
+      get "order", to: "order#index"
+      get "order/:date", to: "order#show"
+      get "order/:id", to: "order#show"
+      put "order", to: "order#create"
+      post "order/cancel/:id", to: "order#cancel"
+
     end
   end
 end

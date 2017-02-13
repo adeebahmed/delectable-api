@@ -23,6 +23,7 @@ class RemoveAuthColumns < ActiveRecord::Migration[5.0]
     remove_column :reports, :last_sign_in_ip, :inet
 
     remove_column :orders, :email, :string
+    remove_column :orders, :total, :float
     remove_column :orders, :encrypted_password, :string
     remove_column :orders, :reset_password_token, :string
     remove_column :orders, :reset_password_sent_at, :datetime

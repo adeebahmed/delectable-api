@@ -46,3 +46,20 @@ LOG:  database system was shut down at 2017-02-12 21:26:22 CST
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  duplicate key value violates unique constraint "menus_pkey"
+DETAIL:  Key (id)=(1) already exists.
+STATEMENT:  INSERT INTO "menus" ("id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+ERROR:  duplicate key value violates unique constraint "menus_pkey"
+DETAIL:  Key (id)=(1) already exists.
+STATEMENT:  INSERT INTO "menus" ("id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-12 22:20:39 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

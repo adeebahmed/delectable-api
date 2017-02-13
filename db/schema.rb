@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170213032446) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "foods"
-    t.float    "total"
     t.float    "surcharge"
     t.string   "ship"
     t.string   "billing"
