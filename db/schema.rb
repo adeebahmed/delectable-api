@@ -51,10 +51,9 @@ ActiveRecord::Schema.define(version: 20170213032446) do
     t.float    "surcharge"
     t.string   "ship"
     t.string   "billing"
-    t.string   "instructions"
     t.string   "status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "name"
     t.string   "email"
     t.string   "phone"
