@@ -9,7 +9,7 @@ class Api::Delectable::OrderController < ApplicationController
   def show
     if(params[:id].length == 8)
       time = DateTime.parse(params[:id].to_s)
-      order = Order.where("deliverydate > ? AND deliverydate < ?", time -1.day, time+ 1.day) #"DATE(deliverydate) = ?", DateTime.parse(params[:id].to_s))
+      order = Order.where("deliverydate > ? AND deliverydate < ?", time - 1.day, time + 1.day) #"DATE(deliverydate) = ?", DateTime.parse(params[:id].to_s))
       render json: order, status: 200
     elsif (params[:id].to_i != 0 && params[:id].length == 1)
       order = Order.find(params[:id])
@@ -30,6 +30,19 @@ class Api::Delectable::OrderController < ApplicationController
       render json: '[{"order": {"id":' + order.id.to_s + ','  + '"cancel_url": /order/cancel/' + order.id.to_s + '}}]', status: 200
     else
       render json: "422", status: 422
+    end
+  end
+
+  def cancel
+    order = Order.find(params[:id])
+
+    if(!order.nil?)
+      order.status = 'canceled'
+      order.deliverydate = nil
+      order.save
+      render json: order, status: 204
+    else
+      render json: "404", status: 404
     end
   end
 
