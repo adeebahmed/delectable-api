@@ -7,16 +7,18 @@ class Api::Delectable::OrderController < ApplicationController
   end
 
   def show
-    if (params[:id].to_i != 0)
-      order = Order.find(params[:id])
+    if(params[:id].length == 8)
+      time = DateTime.parse(params[:id].to_s)
+      order = Order.where("deliverydate > ? AND deliverydate < ?", time -1.day, time+ 1.day) #"DATE(deliverydate) = ?", DateTime.parse(params[:id].to_s))
       render json: order, status: 200
+    elsif (params[:id].to_i != 0 && params[:id].length == 1)
+      order = Order.find(params[:id])
+
       if(order.nil? == false)
         render json: order, status: 200
       else
         render json: "404", status: 404
       end
-    #elsif(params[:id].length == 8 & params[:id].isdate)
-
     end
   end
 
@@ -35,5 +37,4 @@ class Api::Delectable::OrderController < ApplicationController
   def order_params
     params.require(:order).permit(:foods, :surcharge, :ship, :billing, :instructions, :status, :name, :email, :phone, :notes, :deliverydate)
   end
-
 end
