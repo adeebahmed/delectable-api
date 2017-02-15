@@ -8,8 +8,12 @@ class Api::Delectable::AdminController < ApplicationController
 
   # PUT updates menu with new menu item
   def show
+    if(Admin.first.nil?)
+      createAdmin
+    end
+
     menu=Menu.new(menu_params)
-    # if the admin is saved successfully than respond with json data and status code 201
+    # if the menu is saved successfully than respond with json data and status code 201
     if menu.save
       render json: Menu.all, status: 200
     else
@@ -60,6 +64,12 @@ class Api::Delectable::AdminController < ApplicationController
     end
   end
 
+  def createAdmin
+    admin=Admin.new(:email=> 'adeeb@adeebahmed.com', :password => 'password', :password_confirmation => 'password',
+                    :firstname => 'adeeb', :lastname => 'ahmed', :surcharge => 2)
+    admin.save
+  end
+
   def updatemenu
       menuItem = Menu.find(params[:id])
 
@@ -89,6 +99,18 @@ class Api::Delectable::AdminController < ApplicationController
       render json: "400", status: 400
     end
   end
+
+  def delivered
+    order = Order.find(params[:id])
+    order.status = "delivered"
+
+    if order.save
+      render json: order, status: 204
+    else
+      render json: "404", status: 404
+    end
+  end
+
 
   # # Updating admins
   # def update

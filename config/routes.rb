@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       put "admin/menu/:id", to:"admin#updatemenu"
       get "admin/surcharge", to: "admin#getsurcharge"
       post "admin/surcharge", to: "admin#postsurcharge"
-      #get "admins/:id", to:"admin#show"
+      post "admin/delivery/:id", to:"admin#delivered"
 
       get "menu", to: "menu#index"
       get "menu/:id", to: "menu#show"
