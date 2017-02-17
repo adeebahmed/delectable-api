@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       put "order", to: "order#create"
       post "order/cancel/:id", to: "order#cancel"
 
+      get "report", to: "report#index"
+      get "report/:id", to:"report#show"
+
     end
   end
 end
