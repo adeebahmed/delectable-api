@@ -188,3 +188,5 @@ LOG:  autovacuum launcher started
 ERROR:  operator does not exist: timestamp without time zone < integer at character 101
 HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
 STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate > '2017-02-16 23:43:12.880099' AND deliverydate < 17)
+ERROR:  invalid input syntax for type timestamp: "20170215?end_date=20170217" at character 55
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate > '20170215?end_date=20170217' AND deliverydate < NULL)
