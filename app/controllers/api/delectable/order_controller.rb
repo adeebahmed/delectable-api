@@ -51,14 +51,16 @@ class Api::Delectable::OrderController < ApplicationController
 
   def cancel
     order = Order.find(params[:id])
-
     if(!order.nil?)
-      order.status = 'canceled'
-      order.deliverydate = nil
-      order.save
-      render json: order, status: 204
-    else
-      render json: "404", status: 404
+      if(!order.deliverydate.to_s.split('T')[0].include?(DateTime.now.to_s.split('T')[0]))
+        #render json: order, status: 204
+        order.status = 'canceled'
+        order.deliverydate = nil
+        order.save
+        render json: order, status: 204
+      else
+        render json: "422 - Can't cancel orders on delivery day", status: 422
+      end
     end
   end
 
