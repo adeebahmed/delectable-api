@@ -1,0 +1,196 @@
+LOG:  database system was shut down at 2017-02-12 20:57:53 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "delectable-api_development" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "delectable-api_development"
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-12 21:09:51 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-12 21:15:36 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "delectable-api_development" already exists
+STATEMENT:  CREATE DATABASE "delectable-api_development" ENCODING = 'unicode'
+ERROR:  database "delectable-api_test" already exists
+STATEMENT:  CREATE DATABASE "delectable-api_test" ENCODING = 'unicode'
+ERROR:  column "quantity" of relation "menus" does not exist
+STATEMENT:  ALTER TABLE "menus" DROP "quantity"
+ERROR:  column "name" of relation "orders" already exists
+STATEMENT:  ALTER TABLE "orders" ADD "name" character varying
+ERROR:  column "name" of relation "orders" already exists
+STATEMENT:  ALTER TABLE "orders" ADD "name" character varying
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-12 21:26:22 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  duplicate key value violates unique constraint "menus_pkey"
+DETAIL:  Key (id)=(1) already exists.
+STATEMENT:  INSERT INTO "menus" ("id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+ERROR:  duplicate key value violates unique constraint "menus_pkey"
+DETAIL:  Key (id)=(1) already exists.
+STATEMENT:  INSERT INTO "menus" ("id", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-12 22:20:39 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-12 22:31:31 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+FATAL:  terminating connection due to administrator command
+FATAL:  terminating connection due to administrator command
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-13 11:31:26 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170214')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170214T00:00:00.000Z')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170214T00:00:00.000Z')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170214T00:00:00.000Z')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%2017-02-13 15:00:00 -0900')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%2017-02-14T00:00:00+00:00')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%2017-02-14T00:00:00+00:00')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170214')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170213')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170213')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170213T00:00:00.000Z')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170213')
+ERROR:  invalid input syntax for type double precision: "%20170213" at character 71
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE to_timestamp('%20170213'))
+ERROR:  syntax error at or near ")" at character 58
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE )
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '%20170213')
+ERROR:  function to_date(unknown) does not exist at character 58
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE to_date('%20170213'))
+ERROR:  function to_datetime(unknown) does not exist at character 58
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE to_datetime('%20170213'))
+ERROR:  syntax error at or near ")" at character 58
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE )
+ERROR:  syntax error at or near ")" at character 58
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE )
+ERROR:  syntax error at or near ")" at character 58
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE )
+ERROR:  syntax error at or near ")" at character 58
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE )
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '20170213')
+ERROR:  operator does not exist: timestamp without time zone ~~ timestamp with time zone at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE to_timestamp('20170213'))
+ERROR:  function to_date(unknown) does not exist at character 58
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE to_date('20170213'))
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '20170213')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '20170213T00:00:00.000Z')
+ERROR:  syntax error at or near "order" at character 45
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (DATE(order.deliverydate) = '2017-02-13 00:00:00')
+ERROR:  operator does not exist: timestamp without time zone ~~ unknown at character 53
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate LIKE '2017-02-13T00:00:00+00:00')
+ERROR:  syntax error at or near "order" at character 45
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (DATE(order.deliverydate) = '2017-02-13 00:00:00')
+ERROR:  syntax error at or near "order" at character 45
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (DATE(order.deliverydate) LIKE '2017-02-13 00:00:00')
+ERROR:  operator does not exist: date ~~ unknown at character 59
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (DATE(deliverydate) LIKE '2017-02-13 00:00:00')
+ERROR:  operator does not exist: date ~~ unknown at character 59
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (DATE(deliverydate) LIKE '2017-02-13 00:00:00')
+ERROR:  syntax error at or near "order" at character 45
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (DATE(order.deliverydate) = '2017-02-13 00:00:00')
+ERROR:  database "delectable-api_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "delectable-api_development"
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2017-02-15 11:50:21 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  operator does not exist: timestamp without time zone < integer at character 101
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate > '2017-02-16 23:43:12.880099' AND deliverydate < 17)
+ERROR:  invalid input syntax for type timestamp: "20170215?end_date=20170217" at character 55
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (deliverydate > '20170215?end_date=20170217' AND deliverydate < NULL)
+LOG:  database system was shut down at 2017-02-17 19:05:22 CST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
