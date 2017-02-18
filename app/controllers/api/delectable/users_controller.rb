@@ -19,8 +19,9 @@ class Api::Delectable::UsersController < ApplicationController
 
     elsif (params[:id].to_i != 0) # search by id
         user = User.find(params[:id])
+        orders = Order.where("email = ?", user.email.to_s)
         if(user.nil? == false)
-          render json: user,:except=> [:created_at,:updated_at], status: 200
+          render json: [user, orders],:except=> [:created_at,:updated_at], status: 200
         else
           render json: { errors: user.errors }, status: 404
         end
