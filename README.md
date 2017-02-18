@@ -25,10 +25,10 @@ if that doesn't work try:
     $ sudo apt-get install postgresql postgresql-client postgresql-doc pgadmin3
     $ sudo gem install pg
     
- ####Start postgres server
+####Start postgres server
     $ pg_ctl -D [path to postgres install] -l logfile start  #/Users/adeeb/usr/local/var/postgres
  
- ####Stop postgres server
+####Stop postgres server
     $ pg_ctl -D [path to postgres install]] stop -s -m fast #/Users/adeeb/usr/local/var/postgres
 
 ## Download and deploy the API
