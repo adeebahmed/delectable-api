@@ -66,7 +66,7 @@ class Api::Delectable::AdminController < ApplicationController
 
   def createAdmin
     admin=Admin.new(:email=> 'adeeb@adeebahmed.com', :password => 'password', :password_confirmation => 'password',
-                    :firstname => 'adeeb', :lastname => 'ahmed', :surcharge => 2)
+                    :firstname => 'adeeb', :lastname => 'ahmed', :surcharge => 0)
     admin.save
   end
 

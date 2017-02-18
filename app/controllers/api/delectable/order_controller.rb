@@ -2,8 +2,19 @@ class Api::Delectable::OrderController < ApplicationController
   respond_to :json
 
   def index
+    menuitems = Array.new
     orders = Order.all
-    render json: orders, status: 200
+    orders.each do |order|
+    foods = order.foods.to_s
+    foods = foods.split('|')
+
+    foods.each do |food|
+      foodid = food.split(',')[0]
+      fooditem = Menu.find(foodid)
+      menuitems.push(fooditem)
+    end
+    end
+    render json: {:order => [orders, :foods => menuitems]}, :except=> [:created_at,:updated_at], status: 200
   end
 
   def show
