@@ -2,15 +2,15 @@
 
 [Ruby/Rails Setup on Ubuntu 10.04](http://ascarter.net/2010/05/10/rails-development-on-ubuntu-10.04.html)
 
-##Install ruby stack
+## Install ruby stack
 
     $ sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev
 
-####Verify ruby version
+#### Verify ruby version
 
     $ ruby -v
 
-####Install ruby gems (use latest version possible)
+#### Install ruby gems (use latest version possible)
     $ sudo apt-get install rubygems
 if that doesn't work try:
 
@@ -20,15 +20,15 @@ if that doesn't work try:
     $ cd rubygems-1.3.6
     $ sudo ruby setup.rb
 
-#Install Postgres
+# Install Postgres
 
     $ sudo apt-get install postgresql postgresql-client postgresql-doc pgadmin3
     $ sudo gem install pg
     
-####Start postgres server
+#### Start postgres server
     $ pg_ctl -D [path to postgres install] -l logfile start  #/Users/adeeb/usr/local/var/postgres
  
-####Stop postgres server
+#### Stop postgres server
     $ pg_ctl -D [path to postgres install]] stop -s -m fast #/Users/adeeb/usr/local/var/postgres
 
 ## Download and deploy the API
